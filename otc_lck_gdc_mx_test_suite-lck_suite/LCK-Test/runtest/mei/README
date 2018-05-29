@@ -1,0 +1,31 @@
+------------------
+MEI TEST SCENARIOS
+------------------
+
+                             AUTO    MANUAL
+                            ------   ------
+1) 'mei-func-tests'	   :  5 TC
+2) 'mei-func-builtin-tests':  0 TC
+3) 'mei-perf-tests'        :  0 TC
+4) 'mei-stress-tests'      :  0 TC
+
+5) 'mei-bat-tests'         :  5 TC
+6) 'mei-full-tests'	   :  0 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> 'mei-bat-tests' contains 5 functional TC.
+
+  -> 'mei-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in MEI Test Plan: https://docs.google.com/spreadsheets/d/1E4D-nkMTAECYrk0jKg9FgqGIIqkYJVgA5JMJ0BV7Wak/edit#gid=303960539
+
+  -> To run MEI tests: './run_lck_test.sh -d mei -t <test-type> -k <kernel-type>'
+		       <test-type>:   bat, func, perf or full
+		       <kernel-type>: module or builtin

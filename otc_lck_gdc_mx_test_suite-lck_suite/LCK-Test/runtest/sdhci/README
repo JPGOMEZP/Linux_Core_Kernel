@@ -1,0 +1,33 @@
+-------------------
+SDHCI TEST SCENARIOS
+-------------------
+
+                               AUTO    MANUAL
+                              ------   ------
+1) 'sdhci-func-tests'        : 11 TC
+2) 'sdhci-func-builtin-tests':  2 TC
+3) 'sdhci-perf-tests'        :  7 TC
+4) 'sdhci-stress-tests'      :  4 TC
+
+5) 'sdhci-bat-tests'         : 16 TC
+6) 'sdhci-full-tests'        : 24 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> SDHCI BAT: 13 Functional and 3 Performance (KPIs) TCs.
+
+  -> 'sdhci-bat-tests' contains 13 functional TC
+
+  -> 'sdhci-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in SDHCI Test Plan: https://docs.google.com/spreadsheets/d/1r7SW8tMWSqPqPqd4MhQ83gju0X9dscVXwbVwvsIMFzA/edit#gid=1493235832
+
+  -> To run SDHCI tests: './run_lck_test.sh -d sdhci -t <test-type> -k <kernel-type>'
+    		         <test-type>:   bat, func, perf or full
+			 <kernel-type>: module or builtin

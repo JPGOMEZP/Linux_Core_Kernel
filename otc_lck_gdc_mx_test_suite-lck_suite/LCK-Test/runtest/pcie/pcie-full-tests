@@ -1,0 +1,68 @@
+# TEST SCENARIO: pci-bat-tests
+# DESCRIPTION:   this test scenario contains full (functional, performance and
+#                stress) test cases for PCIe
+# TESTS COUNT:   32
+
+PCI_FUNC_PORT_KERNEL_DRIVER pci_verifyer.sh -k
+
+PCI_FUNC_ROOT_PORT_CLASS pci_verifyer.sh -c
+
+PCI_FUNC_ENUMERATION_DEVICE pci_verifyer.sh -e
+
+PCI_FUNC_LIST_MODULES_LOADED pci_verifyer.sh -m
+
+PCI_FUNC_NUMBER_OF_ROOT_PORTS pci_verifyer.sh -n
+
+PCI_FUNC_ROOT_PORT_VENDOR_ID pci_verifyer.sh -i
+
+PCI_FUNC_ETH_PING_TG iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "ping 10.219.128.64 -c 10"
+
+PCI_FUNC_ETH_PING_TG_MULTI_PKT_IZES iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "for size in 64 128 512 1024 4096 8192 16384; do ping 10.219.128.64 -c 10 -s 64; done"
+
+PCI_FUNC_SATA_EXT2_DD_RW_10M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext2" -b "1M" -c "10" -d "pci" -n "$pci_sata_node"
+
+PCI_FUNC_SATA_EXT3_DD_RW_10M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext3" -b "1M" -c "10" -d "pci" -n "$pci_sata_node"
+
+PCI_FUNC_SATA_EXT4_DD_RW_10M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext4" -b "1M" -c "10" -d "pci" -n "$pci_sata_node"
+
+PCI_FUNC_SATA_VFAT_DD_RW_10M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "vfat" -b "1M" -c "10" -d "pci" -n "$pci_sata_node"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_16K_76B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 88 -f M -d -t 60 -w 16K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_64K_76B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 88 -f M -d -t 60 -w 64K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_256K_76B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 88 -f M -d -t 60 -w 256K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_16K_200B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 212 -f M -d -t 60 -w 16K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_64K_200B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 212 -f M -d -t 60 -w 64K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_256K_200B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 212 -f M -d -t 60 -w 256K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_16K_1448B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -f M -d -t 60 -w 16K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_64K_1448B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -f M -d -t 60 -w 64K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_256K_1448B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -f M -d -t 60 -w 256K"
+
+PCI_PERF_SATA_EXT2_100M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_filesystem_perf_test.sh -f ext2 -s 100 -b "102400 262144 524288" -d "pci" -n $pci_sata_node
+
+PCI_PERF_SATA_EXT3_100M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_filesystem_perf_test.sh -f ext3 -s 100 -b "102400 262144 524288" -d "pci" -n $pci_sata_node
+
+PCI_PERF_SATA_EXT4_100M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_filesystem_perf_test.sh -f ext4 -s 100 -b "102400 262144 524288" -d "pci" -n $pci_sata_node
+
+PCI_PERF_SATA_VFAT_100M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_filesystem_perf_test.sh -f vfat -s 100 -b "102400 262144 524288" -d "pci" -n $pci_sata_node
+
+PCI_STRESS_ETH_PING_1MIN iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "ping 10.219.128.64 -w 60"
+
+PCI_STRESS_ETH_PING_10MIN iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "ping 10.219.128.64 -w 600"
+
+PCI_STRESS_ETH_PING_20MIN iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "ping 10.219.128.64 -w 1200"
+
+PCI_STRESS_SATA_EXT2_DD_RW_10M_50TIMES pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext2" -b "10M" -c "1" -d "pci" -l "50" -n "$pci_sata_node"
+
+PCI_STRESS_SATA_EXT3_DD_RW_10M_50TIMES pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext3" -b "10M" -c "1" -d "pci" -l "50" -n "$pci_sata_node"
+
+PCI_STRESS_SATA_EXT4_DD_RW_10M_50TIMES pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext4" -b "10M" -c "1" -d "pci" -l "50" -n "$pci_sata_node"
+
+PCI_STRESS_SATA_VFAT_DD_RW_10M_50TIMES pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "vfat" -b "10M" -c "1" -d "pci" -l "50" -n "$pci_sata_node"

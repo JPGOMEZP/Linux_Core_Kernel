@@ -1,0 +1,29 @@
+# TEST SCENARIO: pci-perf-tests
+# DESCRIPTION:   this test scenario contains performance test cases for PCIe
+# TESTS COUNT:   13
+
+PCI_PERF_TG3_ETH_IPERF_TCP_16K_76B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 88 -f M -d -t 60 -w 16K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_64K_76B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 88 -f M -d -t 60 -w 64K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_256K_76B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 88 -f M -d -t 60 -w 256K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_16K_200B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 212 -f M -d -t 60 -w 16K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_64K_200B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 212 -f M -d -t 60 -w 64K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_256K_200B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -M 212 -f M -d -t 60 -w 256K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_16K_1448B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -f M -d -t 60 -w 16K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_64K_1448B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -f M -d -t 60 -w 64K"
+
+PCI_PERF_TG3_ETH_IPERF_TCP_256K_1448B pci_run_eth_test.sh -a "pci_run_iperf.sh -m -f M -d -t 60 -w 256K"
+
+PCI_PERF_SATA_EXT2_100M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_filesystem_perf_test.sh -f ext2 -s 100 -b "102400 262144 524288" -d "pci" -n $pci_sata_node
+
+PCI_PERF_SATA_EXT3_100M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_filesystem_perf_test.sh -f ext3 -s 100 -b "102400 262144 524288" -d "pci" -n $pci_sata_node
+
+PCI_PERF_SATA_EXT4_100M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_filesystem_perf_test.sh -f ext4 -s 100 -b "102400 262144 524288" -d "pci" -n $pci_sata_node
+
+PCI_PERF_SATA_VFAT_100M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_filesystem_perf_test.sh -f vfat -s 100 -b "102400 262144 524288" -d "pci" -n $pci_sata_node

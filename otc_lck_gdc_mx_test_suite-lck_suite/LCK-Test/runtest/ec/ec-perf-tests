@@ -1,0 +1,11 @@
+# TEST SCENARIO: ec-perf-tests
+# DESCRIPTION:   This test scenario contains performance test cases for EC
+# TESTS COUNT:   04
+
+#EC_PERF_SUSPEND_RESUME_EVENT ec_suspend_resume_event.sh -s
+
+EC_PERF_BUTTON_EVENT_WHILE_SUSPEND ec_suspend_resume_event.sh -b
+
+#EC_PERF_KEY_STATUS_WHILE_SUSPEND ec_suspend_resume_event.sh -k
+
+#EC_PERF_BUTTON_AND_KEY_STATUS_WHILE_SUSPEND ec_suspend_resume_event.sh -a

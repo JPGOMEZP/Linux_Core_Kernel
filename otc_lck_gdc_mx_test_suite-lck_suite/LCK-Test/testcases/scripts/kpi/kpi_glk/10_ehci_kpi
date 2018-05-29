@@ -1,0 +1,3 @@
+EHCI i ehci_pci_init
+EHCI s 00:15.0
+EHCI r 00:15.0

@@ -1,0 +1,14 @@
+# TEST SCENARIO: mei-bat-tests
+# DESCRIPTION:   this test scenario contains basic acceptance test cases for
+#                MEI
+# TESTS COUNT:   05
+
+MEI_FUNC_LOAD_DRIVER_AS_MODULE load_unload_module.sh -l -d "mei-me"
+
+MEI_FUNC_UNLOAD_DRIVER_AS_MODULE load_unload_module.sh -u -d "mei-me"
+
+MEI_FUNC_BIND_UNBIND_DRIVER bind_unbind_driver.sh "mei-me"
+
+MEI_FUNC_GET_VERSION load_unload_module.sh -l -d "mei-me"; getver.py; load_unload_module.sh -u -d "mei-me"
+
+MEI_FUNC_GET_FW_CHECKPOINT load_unload_module.sh -l -d "mei-me"; fwu.py; load_unload_module.sh -u -d "mei-me"

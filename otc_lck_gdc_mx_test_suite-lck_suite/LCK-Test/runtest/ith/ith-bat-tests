@@ -1,0 +1,25 @@
+# TEST SCENARIO: ith-bat-tests
+# DESCRIPTION:   This test scenario contains basic acceptance test cases for ITH
+# TESTS COUNT:
+
+ITH_FUNC_CHECK_STM_CORE_DRV ith_check_driver.sh -c
+
+ITH_FUNC_CHECK_STM_CONSOLE_DRV ith_check_driver.sh -s
+
+ITH_FUNC_CHECK_STM_HEARTBEAT_DRV ith_check_driver.sh -b
+
+ITH_FUNC_CHECK_STM_FTRACE_DRV ith_check_driver.sh -f
+
+ITH_FUNC_CHECK_DUMMY_STM_DRV ith_check_driver.sh -d
+
+ITH_FUNC_CHECK_ITH_DRV ith_check_driver.sh -i
+
+ITH_FUNC_CHECK_ITH_PCI_DRV ith_check_driver.sh -p
+
+ITH_FUNC_CHECK_ITH_GTH_DRV ith_check_driver.sh -g
+
+ITH_FUNC_CHECK_ITH_MSU_DRV ith_check_driver.sh -m
+
+ITH_FUNC_CHECK_ITH_STH_DRV ith_check_driver.sh -t
+
+ITH_FUNC_CHECK_ITH_PTI_DRV ith_check_driver.sh -n

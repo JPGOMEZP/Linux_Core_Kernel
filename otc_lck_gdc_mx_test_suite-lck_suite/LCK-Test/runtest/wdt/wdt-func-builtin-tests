@@ -1,0 +1,8 @@
+# TEST SCENARIO: wdt-func-builtin-tests
+# DESCRIPTION:   this test scenario contains basic aceptance test cases for
+#                WDT when iTCO_wdt driver is configured as builtin
+# TESTS COUNT:   01
+
+#WDT_FUNC_LOAD_DRIVER_AS_BUILTIN driver_builtin_test.sh "iTCO_wdt"
+
+#WDT_FUNC_LOAD_DRIVER_AS_BUILTIN driver_builtin_test.sh "wdat_wdt"

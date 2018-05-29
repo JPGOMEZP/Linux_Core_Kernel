@@ -1,0 +1,11 @@
+# TEST SCENARIO: usb-perf-tests
+# DESCRIPTION:   this test scenario contains performance tests for USB
+# TESTS COUNT:   04
+
+#USB_PERF_EXT2_100M sata_device_filesystem_perf_test.sh -f 'ext2' -s '100' -b '102400 262144 524288' -d 'usb'
+
+#USB_PERF_EXT3_100M sata_device_filesystem_perf_test.sh -f 'ext3' -s '100' -b '102400 262144 524288' -d 'usb'
+
+#USB_PERF_EXT4_100M sata_device_filesystem_perf_test.sh -f 'ext4' -s '100' -b '102400 262144 524288' -d 'usb'
+
+#USB_PERF_VFAT_100M sata_device_filesystem_perf_test.sh -f 'vfat' -s '100' -b '102400 262144 524288' -d 'usb'

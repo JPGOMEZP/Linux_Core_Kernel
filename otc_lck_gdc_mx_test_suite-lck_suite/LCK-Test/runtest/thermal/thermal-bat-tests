@@ -1,0 +1,45 @@
+# @name THERMAL_FUNC_TESTS
+# @desc THERMAL_FUNC_TESTS  perform functional tests for thermal driver
+# @requires thermal
+# @setup_requires
+
+
+THERMAL_BIND_UNBIND_DRIVER bind_unbind_driver.sh "thermal"
+
+THERMAL_XS_FUNC_SANITY source 'thermal_01.sh'
+
+#thermal test on cooling actions: thermal_02.sh
+THERMAL_XS_FUNC_COOLING source 'thermal_02.sh' || die "error running thermal test on trip setup: thermal_02.sh"
+
+#thermal test on sensor changes: thermal_03.sh FAILING****
+#THERMAL_XS_FUNC_SENSING source 'common.sh'; thermal_03.sh || die "error running thermal test on trip setup: thermal_03.sh"
+
+#thermal zone sysfs: thermal_07.sh
+THERMAL_XS_FUNC_TZONE_SYSFS source 'thermal_07.sh' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+#thermal test on hwmo sysfs: thermal_08.sh
+THERMAL_XS_FUNC_HWMON_SYSFS source 'thermal_08.sh' || die "error running thermal test on trip setup: thermal_08.sh"
+
+
+
+#Power Clamp didnt found registered: thermal_09.sh
+THERMAL_XS_FUNC_PCLAMP_REG source 'thermal_09.sh' || die "error running thermal test on trip setup: thermal_09.sh"
+
+
+#thermal test on check coretemp entries: thermal_10
+THERMAL_XS_FUNC_CORETEMP_ENTRY source 'thermal_10.sh' || die "error running thermal test on trip setup: thermal_10.sh"
+
+
+#thermal test on read per core temp:thermal_11.sh FAILINGG ****** NO BINARY STRESS *****
+#THERMAL_XS_FUNC_PER_CORE_TEMP source 'thermal_11.sh -c -t 300' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+#thermal test on RAPL DOMAIN SYSFS: thermal_12.sh FAILINGG ******* NO RAPL ******
+#THERMAL_XS_FUNC_RAPL_SYSFS source 'thermal_12.sh' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+#thermal cooling device max state: thermal_13.sh
+THERMAL_XS_FUNC_NEG_CDEV_MSTATE source 'thermal_13.sh' || die "error running thermal test on trip setup: thermal_13.sh"
+
+

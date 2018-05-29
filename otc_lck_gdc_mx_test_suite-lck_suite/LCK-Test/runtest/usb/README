@@ -1,0 +1,33 @@
+-------------------
+USB TEST SCENARIOS
+-------------------
+
+                               AUTO    MANUAL
+                              ------   ------
+1) 'usb-func-tests'        :  17 TC
+2) 'usb-func-builtin-tests':   0 TC
+3) 'usb-perf-tests'        :   4 TC
+4) 'usb-stress-tests'      :   4 TC
+
+5) 'usb-bat-tests'         :  17 TC
+6) 'usb-full-tests'        :  25 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> USB BAT: 17 Functional and 9 Performance (KPIs) TCs.
+
+  -> 'usb-bat-tests' contains 19 functional TC and 9 performance TC
+
+  -> 'usb-full-tests' contains functional, performance and stress TC
+
+  -> All TC are detailed in SDHCI Test Plan: https://docs.google.com/spreadsheets/d/1hlmwgik5k3_F7efGbSdyOPJQtw4BNB4fmNGjEr2UOGc/edit#gid=303960539
+
+  -> To run USB tests: './run_lck_test.sh -d usb -t <test-type> -k <kernel-type>'
+                       <test-type>:   bat, func, perf or full
+		       <kernel-type>: module or builtin

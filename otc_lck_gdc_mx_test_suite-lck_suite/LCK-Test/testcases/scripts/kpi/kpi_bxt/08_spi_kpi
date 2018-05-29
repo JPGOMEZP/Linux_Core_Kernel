@@ -1,0 +1,3 @@
+SPI i pxa2xx_spi_init
+SPI s 00:19.0
+SPI r 00:19.0

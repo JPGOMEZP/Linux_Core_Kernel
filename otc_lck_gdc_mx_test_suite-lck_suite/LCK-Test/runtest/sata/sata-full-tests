@@ -1,0 +1,70 @@
+# TEST SCENARIO: sata-full-tests
+# DESCRIPTION:   this test scenario contains full (functional, performance and stress) test cases for SATA
+# TESTS COUNT:   30
+
+# FUNCTIONAL TEST CASES
+
+#SATA_FUNC_ENUMERATION_DEVICE sata_device_specification.sh -e
+
+#SATA_FUNC_AHCI_SPEC sata_device_specification.sh -a
+
+#SATA_FUNC_GEN3_SPEC sata_device_specification.sh -g
+
+#SATA_FUNC_NCQ_SPEC sata_device_specification.sh -n
+
+#SATA_FUNC_HOTPLUG_SPEC sata_device_specification.sh -t
+
+#SATA_FUNC_POWER_MANAGEMENT_D0 sata_power_management.sh
+
+#SATA_FUNC_EXT2_DD_RW_10M sata_device_dd_readwrite_test.sh -f "ext2" -b "1M" -c "10" -d "sata"
+
+#SATA_FUNC_EXT3_DD_RW_10M sata_device_dd_readwrite_test.sh -f "ext3" -b "1M" -c "10" -d "sata"
+
+#SATA_FUNC_EXT4_DD_RW_10M sata_device_dd_readwrite_test.sh -f "ext4" -b "1M" -c "10" -d "sata"
+
+#SATA_FUNC_VFAT_DD_RW_10M sata_device_dd_readwrite_test.sh -f "vfat" -b "1M" -c "10" -d "sata"
+
+SATA_FUNC_EXT2_DD_RW_SSD1_TO_SSD2_10M sata_device_dd_readwrite_test.sh -f "ext2" -b "1M" -c "10" -d "sata" -t -i "sts"
+
+SATA_FUNC_EXT3_DD_RW_SSD1_TO_SSD2_10M sata_device_dd_readwrite_test.sh -f "ext3" -b "1M" -c "10" -d "sata" -t -i "sts"
+
+SATA_FUNC_EXT4_DD_RW_SSD1_TO_SSD2_10M sata_device_dd_readwrite_test.sh -f "ext4" -b "1M" -c "10" -d "sata" -t -i "sts"
+
+SATA_FUNC_VFAT_DD_RW_SSD1_TO_SSD2_10M sata_device_dd_readwrite_test.sh -f "vfat" -b "1M" -c "10" -d "sata" -t -i "sts"
+
+#SATA_FUNC_LOAD_DRIVER_AS_MODULE load_unload_module.sh -l -d "ahci"
+
+#SATA_FUNC_UNLOAD_DRIVER_AS_MODULE load_unload_module.sh -u -d "ahci"
+
+#SATA_FUNC_BIND_UNBIND_DRIVER bind_unbind_driver.sh "ahci"
+
+#SATA_FUNC_EXT2_DD_RW_HDD_10M load_unload_module.sh -l -d "ahci" && sata_device_dd_readwrite_test.sh -f "ext2" -b "1M" -c "10" -d "hdd"
+
+#SATA_FUNC_EXT3_DD_RW_HDD_10M sata_device_dd_readwrite_test.sh -f "ext3" -b "1M" -c "10" -d "hdd"
+
+#SATA_FUNC_EXT4_DD_RW_HDD_10M sata_device_dd_readwrite_test.sh -f "ext4" -b "1M" -c "10" -d "hdd"
+
+#SATA_FUNC_VFAT_DD_RW_HDD_10M echo 2 > $SATA_SCRIPTS/sata_reboot_tracker; sata_device_dd_readwrite_test.sh -f "vfat" -b "1M" -c "10" -d "hdd"
+
+#SATA_FUNC_CDROM_READ_SUPPORT echo 3 > $SATA_SCRIPTS/sata_reboot_tracker; sata_cdrom_read_support.sh
+
+
+# PERFORMANCE TEST CASES
+
+#SATA_PERF_EXT2_100M sata_device_filesystem_perf_test.sh -f "ext2" -s "100" -b "102400 262144 524288" -d "sata"
+
+#SATA_PERF_EXT3_100M sata_device_filesystem_perf_test.sh -f "ext3" -s "100" -b "102400 262144 524288" -d "sata"
+
+#SATA_PERF_EXT4_100M sata_device_filesystem_perf_test.sh -f "ext4" -s "100" -b "102400 262144 524288" -d "sata"
+
+#SATA_PERF_VFAT_100M sata_device_filesystem_perf_test.sh -f "vfat" -s "100" -b "102400 262144 524288" -d "sata"
+
+# STRESS TEST CASES
+
+#SATA_STRESS_EXT2_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext2" -b "10M" -c "10" -d "sata" -l "50"
+
+#SATA_STRESS_EXT3_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext3" -b "10M" -c "10" -d "sata" -l "50"
+
+#SATA_STRESS_EXT4_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext4" -b "10M" -c "10" -d "sata" -l "50"
+
+#SATA_STRESS_VFAT_DD_RW_100M echo 4 > $SATA_SCRIPTS/sata_reboot_tracker; sata_device_dd_readwrite_test.sh -f "vfat" -b "10M" -c "10" -d "sata" -l "50"

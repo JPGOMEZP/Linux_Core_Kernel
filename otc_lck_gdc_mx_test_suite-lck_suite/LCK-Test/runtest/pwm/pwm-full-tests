@@ -1,0 +1,33 @@
+# TEST SCENARIO: pwm-full-tests
+# DESCRIPTION:   this test scenario contains functional, performance and stress tests for PWM
+# TESTS COUNT:   14
+
+# FUNCTIONAL TEST CASES
+
+PWM_FUNC_LOAD_PWM_LPSS_DRIVER_AS_MODULE load_unload_module.sh -l -d "pwm-lpss"
+
+PWM_FUNC_UNLOAD_PWM_LPSS_DRIVER_AS_MODULE load_unload_module.sh -u -d "pwm-lpss"
+
+PWM_FUNC_LOAD_PWM_LPSS_PCI_DRIVER_AS_MODULE load_unload_module.sh -l -d "pwm-lpss-pci"
+
+PWM_FUNC_PWM_LPSS_PCI_PATH_EXISTS pwm_paths.sh -c
+
+PWM_FUNC_UNLOAD_PWM_LPSS_PCI_DRIVER_AS_MODULE load_unload_module.sh -u -d "pwm-lpss-pci"
+
+PWM_FUNC_LOAD_PWM_LPSS_PLATFORM_DRIVER_AS_MODULE load_unload_module.sh -l -d "pwm-lpss-platform"
+
+PWM_FUNC_PWM_LPSS_PLATFORM_PATH_EXISTS pwm_paths.sh -p
+
+PWM_FUNC_UNLOAD_PWM_LPSS_PLATFORM_DRIVER_AS_MODULE load_unload_module.sh -u -d "pwm-lpss-platform"
+
+PWM_FUNC_LOAD_PWM_REGULATOR_DRIVER_AS_MODULE load_unload_module.sh -l -d "pwm-regulator"
+
+PWM_FUNC_PWM_REGULATOR_PATH_EXISTS pwm_paths.sh -r
+
+PWM_FUNC_UNLOAD_PWM_REGULATOR_DRIVER_AS_MODULE load_unload_module.sh -u -d "pwm-regulator"
+
+PWM_FUNC_LOAD_PWM_BACKLIGHT_DRIVER_AS_MODULE load_unload_module.sh -l -d "pwm_bl"
+
+PWM_FUNC_PWM_BACKLIGHT_PATH_EXISTS pwm_paths.sh -b
+
+PWM_FUNC_UNLOAD_PWM_BACKLIGHT_DRIVER_AS_MODULE load_unload_module.sh -u -d "pwm-bl"

@@ -1,0 +1,3 @@
+RTC i add_rtc_cmos
+RTC s 00:04
+RTC r 00:04

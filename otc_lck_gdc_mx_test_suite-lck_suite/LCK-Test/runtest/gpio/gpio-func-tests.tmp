@@ -1,0 +1,1 @@
+GPIO_XS_FUNC_DIR_IN_ALL_GPIOCHIPS source gpio.sh -l "1" -t "in"

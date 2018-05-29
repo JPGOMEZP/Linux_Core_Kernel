@@ -1,0 +1,3 @@
+# TEST SCENARIO: usb-func-builtin-tests
+# DESCRIPTION:   this test scenario contains basic aceptance test cases for USB when driver is configured as builtin
+# TESTS COUNT:   0

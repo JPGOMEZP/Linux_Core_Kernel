@@ -1,0 +1,33 @@
+----------------------
+THERMAL TEST SCENARIOS
+----------------------
+
+                                 AUTO    MANUAL
+                                ------   ------
+1) 'thermal-func-tests'        :  7 TC
+2) 'thermal-func-builtin-tests':  0 TC
+3) 'thermal-perf-tests'        :  0 TC
+4) 'thermal-stress-tests'      :  0 TC
+
+5) 'thermal-bat-tests'         :  0 TC
+6) 'thermal-full-tests'        :  0 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> THERMAL BAT: 0 Functional TC.
+
+  -> 'thermal-bat-tests' contains 6 functional TC
+
+  -> 'thermal-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in THERMAL Test Plan: https://docs.google.com/spreadsheets/d/17EjPktf2DLLE6I_a28qHdHW86vZS5StfFt7inRoI9QA/edit#gid=245661309
+
+  -> To run THERMAL tests: './run_lck_test.sh -d thermal -t <test-type> -k <kernel-type>'
+    		           <test-type>:   bat, func, perf or full
+			   <kernel-type>: module or builtin

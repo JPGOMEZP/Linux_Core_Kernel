@@ -1,0 +1,30 @@
+------------------
+PCIe TEST SCENARIOS
+------------------
+
+                              AUTO    MANUAL
+                             ------   ------
+1) 'pcie-func-builtin-tests':           3 TC
+1) 'pcie-func-tests'        : 12 TC
+2) 'pcie-perf-tests'        : 13 TC
+3) 'pcie-stress-test'       :  7 TC
+4) 'pcie-full-tests'        : 32 TC     3 TC
+5) 'pcie-bat-tests'         :  6 TC     3 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> 'pcie-bat-tests' contains 6 Functional TC.
+
+  -> 'pcie-full-tests' contains Functional, Performance and stress TC.
+
+  -> All TC are detailed in PCIe Test Plan: https://docs.google.com/spreadsheets/d/1k2UDfwH1LmgITWcXL89DvZgPbQq_-cYan06tBuFR2ps/edit#gid=342654402
+
+  -> To run PCIe tests: './run_lck_test.sh -d pcie -t <test-type> -k <kernel-type>'
+                        <test-type>:   bat, func, perf or full
+			<kernel-type>: module or builtin

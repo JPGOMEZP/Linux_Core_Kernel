@@ -1,0 +1,17 @@
+# TEST SCENARIO: pci-bat-tests
+# DESCRIPTION:   this test scenario contains stress test cases for PCIe
+# TESTS COUNT:   07
+
+PCI_STRESS_ETH_PING_1MIN iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "ping 10.219.128.64 -w 60"
+
+PCI_STRESS_ETH_PING_10MIN iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "ping 10.219.128.64 -w 600"
+
+PCI_STRESS_ETH_PING_20MIN iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "ping 10.219.128.64 -w 1200"
+
+PCI_STRESS_SATA_EXT2_DD_RW_10M_50TIMES pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext2" -b "10M" -c "1" -d "pci" -l "50" -n "$pci_sata_node"
+
+PCI_STRESS_SATA_EXT3_DD_RW_10M_50TIMES pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext3" -b "10M" -c "1" -d "pci" -l "50" -n "$pci_sata_node"
+
+PCI_STRESS_SATA_EXT4_DD_RW_10M_50TIMES pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext4" -b "10M" -c "1" -d "pci" -l "50" -n "$pci_sata_node"
+
+PCI_STRESS_SATA_VFAT_DD_RW_10M_50TIMES pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "vfat" -b "10M" -c "1" -d "pci" -l "50" -n "$pci_sata_node"

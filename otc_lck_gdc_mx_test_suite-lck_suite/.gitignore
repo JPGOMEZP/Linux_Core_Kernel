@@ -1,0 +1,9 @@
+results/bat/*
+results/func/*
+results/perf/*
+results/stress/*
+results/full/*
+LCK-Test/testcases/scripts/wdt/wdt_reboot_tracker
+LCK-Test/testcases/scripts/wdt/wdt_test_scenario_tracker
+LCK-Test/testcases/scripts/wdt/wdt_test_suite_tracker
+LCK-Test/testcases/wdt_test_suite/*

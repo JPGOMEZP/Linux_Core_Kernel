@@ -1,0 +1,33 @@
+------------------
+RTC TEST SCENARIOS
+------------------
+
+                              AUTO    MANUAL
+                             ------   ------
+1) 'rtc-func-tests'	   :  6 TC
+2) 'rtc-func-builtin-tests':  0 TC
+3) 'rtc-perf-tests'        :  3 TC
+4) 'rtc-stress-tests'	   :  5 TC
+
+5) 'rtc-bat-tests'         :  9 TC
+6) 'rtc-full-tests'        : 14 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> RTC BAT: 6 Functional and 3 Performance (KPIs) TCs.
+
+  -> 'rtc-bat-tests' contains 6 functional TC.
+
+  -> 'rtc-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in RTC Test Plan: https://docs.google.com/spreadsheets/d/1IctkLq2GbhtMcJ9Qo7DiueZDNrDXyC9xoX8ghRVOfDw/edit#gid=303960539
+
+  -> To run RTC tests: './run_lck_test.sh -d rtc -t <test-type> -k <kernel-type>'
+                       <test-type>:   bat, func, perf or full
+                       <kernel-type>: module or builtin

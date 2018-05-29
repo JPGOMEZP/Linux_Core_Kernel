@@ -1,0 +1,13 @@
+# TEST SCENARIO: rtc-stress-tests
+# DESCRIPTION:   this test scenario contains stress test cases for RTC
+# TESTS COUNT:   05
+
+#RTC_FUNC_SET_TIME_20TIMES rtc_set_time.sh -l "20"
+
+#RTC_FUNC_SET_DATA_20TIMES rtc_set_date.sh -l "20"
+
+#RTC_FUNC_SET_HCTOSYS_20TIMES rtc_set_hctosys.sh -l "20"
+
+#RTC_FUNC_SET_SYSTOCH_20TIMES rtc_set_systohc.sh -l "20"
+
+#RTC_FUNC_SET_ALARM_20TIMES rtc_set_alarm.sh -l "20"

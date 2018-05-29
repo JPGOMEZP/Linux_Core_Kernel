@@ -1,0 +1,16 @@
+# TEST SCENARIO: pci-bat-tests
+# DESCRIPTION:   this test scenario contains basic acceptance test cases for
+#                PCIe
+# TESTS COUNT:   06
+
+PCI_FUNC_PORT_KERNEL_DRIVER pci_verifyer.sh -k
+
+PCI_FUNC_ROOT_PORT_CLASS pci_verifyer.sh -c
+
+PCI_FUNC_ENUMERATION_DEVICE pci_verifyer.sh -e
+
+PCI_FUNC_LIST_MODULES_LOADED pci_verifyer.sh -m
+
+PCI_FUNC_NUMBER_OF_ROOT_PORTS pci_verifyer.sh -n
+
+PCI_FUNC_ROOT_PORT_VENDOR_ID pci_verifyer.sh -i

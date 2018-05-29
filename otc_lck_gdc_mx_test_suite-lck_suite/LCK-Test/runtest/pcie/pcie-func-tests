@@ -1,0 +1,27 @@
+# TEST SCENARIO: pci-func-tests
+# DESCRIPTION:   this test scenario contains functional test cases for PCIe
+# TESTS COUNT:   12
+
+PCI_FUNC_PORT_KERNEL_DRIVER pci_verifyer.sh -k
+
+PCI_FUNC_ROOT_PORT_CLASS pci_verifyer.sh -c
+
+PCI_FUNC_ENUMERATION_DEVICE pci_verifyer.sh -e
+
+PCI_FUNC_LIST_MODULES_LOADED pci_verifyer.sh -m
+
+PCI_FUNC_NUMBER_OF_ROOT_PORTS pci_verifyer.sh -n
+
+PCI_FUNC_ROOT_PORT_VENDOR_ID pci_verifyer.sh -i
+
+PCI_FUNC_ETH_PING_TG iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "ping 10.219.128.64 -c 10"
+
+PCI_FUNC_ETH_PING_TG_MULTI_PKT_IZES iface=`pci_eth_search_device.sh` || die "error getting pcie eth interface name"; echo "PCI eth iface: $iface"; pci_run_eth_test.sh -i "$iface" -a "for size in 64 128 512 1024 4096 8192 16384; do ping 10.219.128.64 -c 10 -s 64; done"
+
+PCI_FUNC_SATA_EXT2_DD_RW_10M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext2" -b "1M" -c "10" -d "pci" -n "$pci_sata_node"
+
+PCI_FUNC_SATA_EXT3_DD_RW_10M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext3" -b "1M" -c "10" -d "pci" -n "$pci_sata_node"
+
+PCI_FUNC_SATA_EXT4_DD_RW_10M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "ext4" -b "1M" -c "10" -d "pci" -n "$pci_sata_node"
+
+PCI_FUNC_SATA_VFAT_DD_RW_10M pci_sata_node=`pci_sata_search_device.sh` || die "Failed to get pci sata devnode:: $pci_sata_node"; pci_sata_node="/dev/${pci_sata_node}4"; sata_device_dd_readwrite_test.sh -f "vfat" -b "1M" -c "10" -d "pci" -n "$pci_sata_node"

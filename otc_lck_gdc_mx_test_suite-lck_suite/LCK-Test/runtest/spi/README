@@ -1,0 +1,33 @@
+------------------
+SPI TEST SCENARIOS
+------------------
+
+                              AUTO    MANUAL
+                             ------   ------
+1) 'spi-func-tests'        :  6 TC
+2) 'spi-func-builtin-tests':  2 TC
+3) 'spi-perf-tests'        :  6 TC
+4) 'spi-stress-tests'      :  0 TC
+
+5) 'spi-bat-tests'         :  6 TC
+6) 'spi-full-tests'        : 14 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> SPI BAT: 8 Functional and 6 Performance (KPIs) TCs.
+
+  -> 'spi-bat-tests' contains 6 functional TC
+
+  -> 'spi-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in SPI Test Plan: https://docs.google.com/spreadsheets/d/12hmqWMBzK2IewCvdCpJOdB4QNbSpZoU_WYxpnuvQM8g/edit#gid=303960539
+
+  -> To run SPI tests: './run_lck_test.sh -d spi -t <test-type> -k <kernel-type>'
+    		         <test-type>:   bat, func, perf or full
+			 <kernel-type>: module or builtin

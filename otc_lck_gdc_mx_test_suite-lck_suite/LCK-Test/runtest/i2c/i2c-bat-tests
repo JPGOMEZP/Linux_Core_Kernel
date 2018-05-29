@@ -1,0 +1,14 @@
+# @name I2C_FUNC_TESTS_SUBSET_0
+# @desc I2C_FUNC_TESTS_SUBSET_0 perform BAT and functional tests for I2C driver
+# @requires i2c
+# @setup_requires
+
+# LPSS: I2C driver
+I2C_XS_FUNC_I2CBUSDETECT source 'common.sh';do_cmd modprobe i2c-dev || die "i2c-dev module load failed";do_cmd i2cdetect -l
+I2C_XS_FUNC_I2CDETECT source 'common.sh';do_cmd modprobe i2c-dev || die "i2c-dev module load failed";i2c_bus_numbers=`get_i2c_test_busses.sh` || die "No I2C buses being found"; for i2c_bus in $i2c_bus_numbers; do echo "========= Testing i2c-$i2c_bus ... ========="; do_cmd i2cdetect -y -r "$i2c_bus"; done
+I2C_XS_FUNC_I2CDETECT_20TIMES source 'common.sh';do_cmd modprobe i2c-dev || die "i2c-dev module load failed";i2c_bus_numbers=`get_i2c_test_busses.sh` || die "No I2C buses being found"; for i2c_bus in $i2c_bus_numbers; do echo "========= Testing i2c-$i2c_bus ... ========="; loop=20; i=0; while [ $i -lt $loop ]; do echo "===i2cdetect loop $i"; do_cmd i2cdetect -y -r "$i2c_bus"; i=`expr $i + 1`; done done
+I2C_XS_FUNC_GET_FUNCTIONALITY source 'common.sh';do_cmd modprobe i2c-dev || die "i2c-dev module load failed"; i2c_bus_numbers=`get_i2c_test_busses.sh` || die "No I2C buses being found"; for i2c_bus in $i2c_bus_numbers; do echo "========= Testing i2c-$i2c_bus ...========="; i2cdetect -F $i2c_bus; done
+
+I2C_XS_FUNC_NEG_INVALID_ADDR source 'common.sh'; do_cmd modprobe i2c-dev || die "i2c-dev module load failed"; invalid_addr=`get_i2c_invalid_addr.sh` && i2cbus_num=`get_i2cbus_number.sh` && i2c_reg=`get_i2c_slave_regoffset.sh | cut -d'-' -f1`;inverted_return="true"; do_cmd "i2cget -y $i2cbus_num $invalid_addr $i2c_reg"
+I2C_XS_FUNC_DRV_CHECK source 'common.sh'; do_cmd i2c_basic_tests.sh -c 0
+I2C_XS_FUNC_ACPI_ENUM source 'common.sh'; do_cmd i2c_basic_tests.sh -c 1

@@ -1,0 +1,60 @@
+# TEST SCENARIO: usb-full-tests
+# DESCRIPTION:   this test scenario contains functional, performance and stress tests for USB
+# TESTS COUNT:
+
+# FUNCTIONAL TEST CASES
+#USB_FUNC_CHECK_USBCORE_DRIVER_IS_LOADED usb_verify_mod_loaded.sh -m "usbcore"
+
+#USB_FUNC_CHECK_USBCORE_DRIVER_IS_LOADED load_unload_module.sh -l -d "usb-storage"; usb_verify_mod_loaded.sh -m "usb_storage"
+
+#USB_FUNC_CHECK_EHCI_DRIVER_IS_LOADED load_unload_module.sh -l -d "ehci-hcd"; usb_verify_mod_loaded.sh -m "ehci_hcd"
+
+#USB_FUNC_CHECK_XHCI_DRIVER_IS_LOADED load_unload_module.sh -l -d "xhci-hcd"; usb_verify_mod_loaded.sh -m "xhci_hcd"
+
+#USB_FUNC_SYSFS_NEW_ID usb_add_rm_device_id.sh -t "add_id"
+
+#USB_FUNC_SYSFS_RM_ID usb_add_rm_device_id.sh -t "remove_id"
+
+#USB_FUNC_SYSFS_CTRL usb_verify_sysfs_xhci_controllers.sh
+
+#USB_FUNC_LIST_USB_DEV usb_listing_usb_devices.sh
+
+#USB_FUNC_D3HOT_ENABLE usb_check_suspend_mode_set.sh
+
+#USB_FUNC_CHK_XHCI_INITCALL usb_xhci_check.sh initcall
+
+#USB_FUNC_CHK_XHCI_DMESG usb_xhci_check.sh dmesg
+
+#USB_FUNC_EXT2_DD_RW_10M sata_device_dd_readwrite_test.sh -f 'ext2' -b '1M' -c '10' -d 'usb'
+
+#USB_FUNC_EXT2_U2U_CP_10M sata_device_dd_readwrite_test.sh -f 'ext2' -b '1M' -c '10' -i 'cp' -d 'usb'
+
+#USB_FUNC_EXT3_DD_RW_10M sata_device_dd_readwrite_test.sh -f 'ext3' -b '1M' -c '10' -d 'usb'
+
+#USB_FUNC_EXT3_U2U_CP_10M sata_device_dd_readwrite_test.sh -f 'ext3' -b '1M' -c '10' -i 'cp' -d 'usb'
+
+#USB_FUNC_EXT4_DD_RW_10M sata_device_dd_readwrite_test.sh -f 'ext4' -b '1M' -c '10' -d 'usb'
+
+#USB_FUNC_EXT4_U2U_CP_10M sata_device_dd_readwrite_test.sh -f 'ext4' -b '1M' -c '10' -i 'cp' -d 'usb'
+
+#USB_FUNC_VFAT_DD_RW_10M sata_device_dd_readwrite_test.sh -f 'vfat' -b '1M' -c '10' -d 'usb'
+
+#USB_FUNC_VFAT_U2U_CP_10M sata_device_dd_readwrite_test.sh -f 'vfat' -b '1M' -c '10' -i 'cp' -d 'usb'
+
+# PERFORMANCE TEST CASES
+#USB_PERF_EXT2_100M sata_device_filesystem_perf_test.sh -f 'ext2' -s '100' -b '102400 262144 524288' -d 'usb'
+
+#USB_PERF_EXT3_100M sata_device_filesystem_perf_test.sh -f 'ext3' -s '100' -b '102400 262144 524288' -d 'usb'
+
+#USB_PERF_EXT4_100M sata_device_filesystem_perf_test.sh -f 'ext4' -s '100' -b '102400 262144 524288' -d 'usb'
+
+#USB_PERF_VFAT_100M sata_device_filesystem_perf_test.sh -f 'vfat' -s '100' -b '102400 262144 524288' -d 'usb'
+
+# STRESS TEST CASES
+#USB_STRESS_EXT2_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext2" -b "10M" -c "10" -d "usb" -l "50"
+
+#USB_STRESS_EXT3_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext3" -b "10M" -c "10" -d "usb" -l "50"
+
+#USB_STRESS_EXT4_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext4" -b "10M" -c "10" -d "usb" -l "50"
+
+#USB_STRESS_VFAT_DD_RW_100M sata_device_dd_readwrite_test.sh -f "vfat" -b "10M" -c "10" -d "usb" -l "50"

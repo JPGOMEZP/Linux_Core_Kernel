@@ -1,0 +1,1 @@
+GPIO_XS_FUNC_DRV_CHECK source gpio.sh -l "1" -t "drv_check" -a

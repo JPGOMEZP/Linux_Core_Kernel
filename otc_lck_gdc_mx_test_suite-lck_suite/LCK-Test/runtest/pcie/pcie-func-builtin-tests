@@ -1,0 +1,3 @@
+# TEST SCENARIO: pcie-func-builtin-tests
+# DESCRIPTION:   This test scenario contains test cases for PCIe when driver is configured as built in.
+# TESTS COUNT:   0

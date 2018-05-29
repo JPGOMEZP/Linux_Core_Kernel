@@ -1,0 +1,3 @@
+# TEST SCENARIO: rtc-func-builtin-tests
+# DESCRIPTION:   this test scenario contains test cases for RTC when driver is configured as builtin.
+# TESTS COUNT:   0

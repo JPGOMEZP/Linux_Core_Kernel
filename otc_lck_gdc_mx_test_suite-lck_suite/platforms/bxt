@@ -1,0 +1,14 @@
+ec
+gpio
+lpc
+mei
+pcie
+thermal
+pwm
+rtc
+sata
+sdhci
+spi
+usb
+wdt
+ith

@@ -1,0 +1,15 @@
+# TEST SCENARIO: spi-bat-tests
+# DESCRIPTION:   this test scenario contains basic acceptance test cases for SPI
+# TESTS COUNT:   06
+
+#SPI_FUNC_LOAD_PXA2XX_PCI_DRIVER_AS_MODULE load_unload_module.sh -l -d "spi-pxa2xx-pci"
+
+#SPI_FUNC_UNLOAD_PXA2XX_PCI_DRIVER_AS_MODULE load_unload_module.sh -u -d "spi-pxa2xx-pci"
+
+#SPI_FUNC_LOAD_PXA2XX_PLATFORM_DRIVER_AS_MODULE load_unload_module.sh -l -d "spi-pxa2xx-platform"
+
+#SPI_FUNC_UNLOAD_PXA2XX_PLATFORM_DRIVER_AS_MODULE load_unload_module.sh -u -d "spi-pxa2xx-platform"; $SPI_SCRIPTS/spi_scenario_modifier.sh
+
+#SPI_FUNC_CHECK_DEVICES spi_check_devices.sh
+
+#SPI_FUNC_BIND_UNBIND_DRIVER load_unload_module.sh -l -d "spi-pxa2xx-platform"; bind_unbind_driver.sh "spi"

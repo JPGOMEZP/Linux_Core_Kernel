@@ -1,0 +1,15 @@
+# TEST SCENARIO: rtc-bat-tests
+# DESCRIPTION:   this test scenario contains basic aceptance test cases for RTC
+# TESTS COUNT:   06
+
+#RTC_FUNC_READ_TIME_DATE rtc_read_time_date.sh
+
+#RTC_FUNC_SET_TIME rtc_set_time.sh
+
+#RTC_FUNC_SET_DATA rtc_set_date.sh
+
+#RTC_FUNC_SET_HCTOSYS rtc_set_hctosys.sh
+
+#RTC_FUNC_SET_SYSTOCH rtc_set_systohc.sh
+
+#RTC_FUNC_SET_ALARM rtc_set_alarm.sh

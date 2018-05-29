@@ -1,0 +1,29 @@
+# TEST SCENARIO: wdt-func-tests
+# DESCRIPTION:   this test scenario contains functional test cases for WDT
+# TESTS COUNT:   11
+
+WDT_FUNC_LOAD_DRIVER_AS_MODULE load_unload_module.sh -l -d "iTCO_wdt"
+
+WDT_FUNC_UNLOAD_DRIVER_AS_MODULE load_unload_module.sh -u -d "iTCO_wdt"
+
+WDT_FUNC_LOAD_DRIVER_AS_MODULE load_unload_module.sh -l -d "wdat_wdt"
+
+WDT_FUNC_UNLOAD_DRIVER_AS_MODULE load_unload_module.sh -u -d "wdat_wdt"
+
+WDT_FUNC_BIND_UNBIND_DRIVER bind_unbind_driver.sh "wdat_wdt"
+
+WDT_FUNC_SETTIMEOUT wdt_ioctl.sh --ioctl "settimeout" --ioctlarg 20
+
+WDT_FUNC_GETTIMEOUT wdt_ioctl.sh --ioctl "gettimeout"
+
+WDT_FUNC_WRITE wdt_ioctl.sh --ioctl "write"
+
+WDT_FUNC_WATCHDOG_SIMPLE wdt_simple_test.sh -s
+
+WDT_FUNC_WATCHDOG_MAGIC_CLOSE wdt_simple_test.sh -m
+
+WDT_FUNC_WATCHDOG_TEST wdt_simple_test.sh -t
+
+WDT_FUNC_HEARTBEAT_NOWAYOUT_0 wdt_kernel_parameters.sh -b "45" -n "0"
+
+WDT_FUNC_HEARTBEAT_NOWAYOUT_1 wdt_kernel_parameters.sh -b "45" -n "1"

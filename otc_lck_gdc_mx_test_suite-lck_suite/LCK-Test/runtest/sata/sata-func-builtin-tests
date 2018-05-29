@@ -1,0 +1,5 @@
+# TEST SCENARIO: sata-func-builtin-tests
+# DESCRIPTION:   this test scenario contains test cases for SATA when driver is configured as builtin.
+# TESTS COUNT:   01
+
+#SATA_FUNC_LOAD_DRIVER_AS_BUILTIN driver_builtin_test.sh "ahci"

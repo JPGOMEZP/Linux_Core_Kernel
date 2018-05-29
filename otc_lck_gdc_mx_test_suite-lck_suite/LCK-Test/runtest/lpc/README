@@ -1,0 +1,31 @@
+------------------
+LPC TEST SCENARIOS
+------------------
+
+                             AUTO    MANUAL
+                            ------   ------
+1) 'lpc-func-tests'	   :  8 TC
+2) 'lpc-func-builtin-tests':  4 TC
+3) 'lpc-perf-tests'        :  0 TC
+4) 'lpc-stress-tests'      :  0 TC
+
+5) 'lpc-bat-tests'         :  8 TC
+6) 'lpc-full-tests'	   :  0 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> 'lpc-bat-tests' contains 8 functional TC.
+
+  -> 'lpc-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in LPC Test Plan: https://docs.google.com/spreadsheets/d/12tMItBXq7_JUcxgNDbgHqWRvec-mgRPIYNk5aWJi-fY/edit#gid=1450382843
+
+  -> To run LPC tests: './run_lck_test.sh -d lpc -t <test-type> -k <kernel-type>'
+		       <test-type>:   bat, func, perf or full
+		       <kernel-type>: module or builtin

@@ -1,0 +1,38 @@
+------------------
+WDT TEST SCENARIOS
+------------------
+
+                              AUTO    MANUAL
+                             ------   ------
+1) 'wdt-func-tests'        : 11 TC     1 TC
+2) 'wdt-func-builtin-tests':  1 TC
+3) 'wdt-perf-tests'        :  0 TC
+4) 'wdt-stress-tests'      :  2 TC
+
+5) 'wdt-bat-tests'         :  6 TC
+6) 'wdt-full-tests'        : 13 TC     1 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> WDT BAT: 13 Functional and 3 Performance (KPIs) TCs.
+
+  -> 'wdt-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in WDT Test Plan: https://docs.google.com/spreadsheets/d/16doyy54uKtRc0nouTq0jlbXkwXp0xZMLv9-IHqa2u2U/edit#gid=303960539
+
+  -> To achieve a full automated execution, a crontab is needed, execute 'crontab -e' and add the following:
+
+     SHELL=/bin/bash
+     TERM=xterm
+     @reboot $HOME/otc_lck_gdc_mx_test_suite-lck_suite/LCK-Test/testcases/scripts/wdt/wdt_cronetab.sh &> /tmp/wdt_debug
+
+  -> To run WDT tests: './run_lck_test.sh -d wdt -t <test-type> -k <kernel-type>'
+                         <test-type>:   bat, func, perf or full
+                         <kernel-type>: module or builtin
+

@@ -1,0 +1,7 @@
+# TEST SCENARIO: sdhci-func-builtin-tests
+# DESCRIPTION:   this test scenario contains basic aceptance test cases for SDHCI when sdhci driver is configured as builtin
+# TESTS COUNT:   02
+
+SDHCI_FUNC_LOAD_SDHCI_PCI_DRIVER_AS_BUILTIN driver_builtin_test.sh "sdhci-pci"
+
+SDHCI_FUNC_LOAD_SDHCI_ACPI_DRIVER_AS_BUILTIN driver_builtin_test.sh "sdhci-acpi"

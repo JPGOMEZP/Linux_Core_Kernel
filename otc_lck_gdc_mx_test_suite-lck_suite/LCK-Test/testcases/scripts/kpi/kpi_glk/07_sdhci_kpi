@@ -1,0 +1,3 @@
+SDHCI i sdhci_driver_init
+SDHCI s 00:1c.0
+SDHCI r 00:1c.0

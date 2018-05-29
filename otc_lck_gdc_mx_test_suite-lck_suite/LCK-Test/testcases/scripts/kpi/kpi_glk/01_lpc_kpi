@@ -1,0 +1,3 @@
+LPC i lpc_ich
+LPC s 00:1f.0
+LPC r 00:1f.0

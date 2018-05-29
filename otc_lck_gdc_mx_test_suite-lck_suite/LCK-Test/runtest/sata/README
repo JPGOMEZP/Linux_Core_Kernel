@@ -1,0 +1,33 @@
+-------------------
+SATA TEST SCENARIOS
+-------------------
+
+                               AUTO    MANUAL
+                              ------   ------
+2) 'sata-func-tests'        : 22 TC     2 TC
+1) 'sata-func-builtin-tests':  1 TC
+3) 'sata-perf-tests'        :  7 TC
+4) 'sata-stress-tests'      :  4 TC
+
+6) 'sata-bat-tests'         : 23 TC
+5) 'sata-full-tests'        : 34 TC     2 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> SATA BAT: 23 Functional and 3 Performance (KPIs) TCs.
+
+  -> 'sata-bat-tests': contains 23 functional TC
+
+  -> 'sata-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in SATA Test Plan: https://docs.google.com/spreadsheets/d/15DfzZj4dWDhxHk1oLu99vxRK_PlW9USPdpttJGAq80Y/edit#gid=975039864
+
+  -> To run SATA tests: './run_lck_test.sh -d sata -t <test-type> -k <kernel-type>'
+                        <test-type>:   bat, func, perf or full
+                        <kernel-type>: module or builtin

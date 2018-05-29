@@ -1,0 +1,9 @@
+# TEST SCENARIO: pwm-func-builtin-tests
+# DESCRIPTION:   this test scenario contains test cases for PWM when driver is configured as builtin.
+# TESTS COUNT:   03
+
+PWM_FUNC_LOAD_PWM_LPSS_DRIVER_AS_BUILTIN driver_builtin_test.sh "pwm-lpss"
+
+PWM_FUNC_LOAD_PWM_LPSS_PCI_DRIVER_AS_BUILTIN driver_builtin_test.sh "pwm-lpss-pci"
+
+PWM_FUNC_LOAD_PWM_LPSS_PLATFORM_DRIVER_AS_BUILTIN driver_builtin_test.sh "pwm-lpss-platform"

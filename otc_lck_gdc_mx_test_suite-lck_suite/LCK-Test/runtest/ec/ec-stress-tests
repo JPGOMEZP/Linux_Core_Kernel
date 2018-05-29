@@ -1,0 +1,17 @@
+# TEST SCENARIO: ec-stress-tests
+# DESCRIPTION:   This test scenario contains stress test cases for EC
+# TESTS COUNT:   07
+
+EC_STRESS_BUTTON_EVENT_20_TIMES ec_button.sh -b "lid" -l "20" && ec_refcount.sh
+
+#EC_STRESS_CAPS_LOCK_LED_50_TIMES ec_led_indicator.sh -i "input4" -c -l "50"
+
+#EC_STRESS_NUMS_LOCK_LED_50_TIMES ec_led_indicator.sh -i "input4" -n -l "50"
+
+#EC_STRESS_SCROLL_LOCK_LED_50_TIMES ec_led_indicator.sh -i "input4" -s -l "50"
+
+EC_STRESS_CAPS_LOCK_KEY_20_TIMES ec_led_indicator.sh -i "input9" -c -l "20"
+
+EC_STRESS_NUM_LOCK_KEY_20_TIMES ec_led_indicator.sh -i "input9" -n -l "20"
+
+#EC_STRESS_SUSPEND_RESUME_EVENT_50_TIMES ec_suspend_resume_event.sh -s -l "50"

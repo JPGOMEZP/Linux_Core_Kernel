@@ -1,0 +1,56 @@
+# @name THERMAL_FUNC_TESTS
+# @desc THERMAL_FUNC_TESTS  perform functional tests for thermal driver
+# @requires thermal
+# @setup_requires
+
+THERMAL_XS_FUNC_SANITY source 'thermal_01.sh'
+
+#thermal test on cooling actions: thermal_02.sh FAILING*****
+#THERMAL_XS_FUNC_COOLING source 'common.sh'; thermal_02.sh
+
+#thermal test on sensor changes: thermal_03.sh FAILING****
+#THERMAL_XS_FUNC_SENSING source 'common.sh'; thermal_03.sh
+
+
+# @name Thermal Throttling Checks FAILING***********
+# @desc Check if throttling has effectiveness.
+#THERMAL_S_FUNC_THROTTLING_0004 source 'thermal_04.sh' || die "error running thermal test throttling checks: thermal_04.sh"
+
+# @name CPUfreq Throttling Check FAILING ********
+# @desc Checks on cpufreq throttling effectiveness.
+#THERMAL_S_FUNC_CPUFREQCOOLING_0005 source 'thermal_05.sh' || die "error running thermal test on cpufreq cooling: thermal_05.sh"
+
+# @name Thermal Trips Checks FAILING ********
+# @desc Test Scenario to check if defined trips are crossed.
+#THERMAL_S_FUNC_TRIPPING_0006 source 'thermal_06.sh' || die "error running thermal test on trip setup: thermal_06.sh"
+
+
+thermal zone sysfs: thermal_07.sh
+THERMAL_XS_FUNC_TZONE_SYSFS source 'thermal_07.sh' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+thermal test on hwmo sysfs: thermal_08.sh
+THERMAL_XS_FUNC_HWMON_SYSFS source 'thermal_08.sh' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+
+Power Clamp didnt found registered: thermal_09.sh
+THERMAL_XS_FUNC_PCLAMP_REG source 'thermal_09.sh' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+thermal test on check coretemp entries: thermal_10
+THERMAL_XS_FUNC_CORETEMP_ENTRY source 'thermal_10.sh' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+#thermal test on read per core temp:thermal_11.sh
+#THERMAL_XS_FUNC_PER_CORE_TEMP source 'thermal_11.sh -c -t 300' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+#thermal test on RAPL DOMAIN SYSFS: thermal_12.sh
+#THERMAL_XS_FUNC_RAPL_SYSFS source 'thermal_12.sh' || die "error running thermal test on trip setup: thermal_07.sh"
+
+
+#thermal cooling device max state: thermal_13.sh
+THERMAL_XS_FUNC_NEG_CDEV_MSTATE source 'thermal_13.sh' || die "error running thermal test on trip setup: thermal_07.sh"
+
+

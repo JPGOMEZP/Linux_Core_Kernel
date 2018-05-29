@@ -1,0 +1,19 @@
+# TEST SCENARIO: pwm-bat-tests
+# DESCRIPTION:   this test scenario contains basic aceptance tests for PWM
+# TESTS COUNT:   08
+
+PWM_FUNC_LOAD_PWM_LPSS_DRIVER_AS_MODULE load_unload_module.sh -l -d "pwm-lpss"
+
+PWM_FUNC_UNLOAD_PWM_LPSS_DRIVER_AS_MODULE load_unload_module.sh -u -d "pwm-lpss"
+
+PWM_FUNC_LOAD_PWM_LPSS_PCI_DRIVER_AS_MODULE load_unload_module.sh -l -d "pwm-lpss-pci"
+
+PWM_FUNC_PWM_LPSS_PCI_PATH_EXISTS pwm_paths.sh -c
+
+PWM_FUNC_UNLOAD_PWM_LPSS_PCI_DRIVER_AS_MODULE load_unload_module.sh -u -d "pwm-lpss-pci"
+
+PWM_FUNC_LOAD_PWM_LPSS_PLATFORM_DRIVER_AS_MODULE load_unload_module.sh -l -d "pwm-lpss-platform"
+
+PWM_FUNC_PWM_LPSS_PLATFORM_PATH_EXISTS pwm_paths.sh -p
+
+PWM_FUNC_UNLOAD_PWM_LPSS_PLATFORM_DRIVER_AS_MODULE load_unload_module.sh -u -d "pwm-lpss-platform"

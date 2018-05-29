@@ -1,0 +1,11 @@
+# TEST SCENARIO: usb-stress-tests
+# DESCRIPTION:   this test scenario contains stress tests cases for USB
+# TESTS COUNT:   04
+
+#USB_STRESS_EXT2_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext2" -b "10M" -c "10" -d "usb" -l "50"
+
+#USB_STRESS_EXT3_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext3" -b "10M" -c "10" -d "usb" -l "50"
+
+#USB_STRESS_EXT4_DD_RW_100M sata_device_dd_readwrite_test.sh -f "ext4" -b "10M" -c "10" -d "usb" -l "50"
+
+#USB_STRESS_VFAT_DD_RW_100M sata_device_dd_readwrite_test.sh -f "vfat" -b "10M" -c "10" -d "usb" -l "50"

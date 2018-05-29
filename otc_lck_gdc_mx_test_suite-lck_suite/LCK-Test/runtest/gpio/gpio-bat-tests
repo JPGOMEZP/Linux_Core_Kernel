@@ -1,0 +1,13 @@
+# @name GPIO_FUNC_TESTS
+# @desc GPIO_FUNC_TESTS perform BAT and fPos veificaiton for GPIO driver
+# @requires gpio
+# @setup_requires
+
+# LPSS: GPIO driver
+GPIO_XS_FUNC_DIR_IN_ALL_GPIOCHIPS source gpio.sh -l "1" -t "in" 
+
+GPIO_XS_FUNC_DIR_OUT_ALL_GPIOCHIPS source gpio.sh -l "1" -t "out"
+
+GPIO_XS_FUNC_DIR_OUT_ALL_GPIOCHIPS_5TIMES source gpio.sh -l "5" -t "out"
+
+GPIO_XS_FUNC_ACPI_ENUM source "common.sh"; gpio.sh -l "1" -t "acpi_enum"

@@ -1,0 +1,13 @@
+# TEST SCENARIO: lpc-func-builtin-tests
+# DESCRIPTION:   This test scenario contains test cases for LPC when driver is
+#                configured as built in.
+# TESTS COUNT:   04
+
+LPC_FUNC_LOAD_LPC_ICH_DRIVER_AS_BUILTIN driver_builtin_test.sh "lpc_ich"
+
+LPC_FUNC_LOAD_PSMOUSE_DRIVER_AS_BUILTIN driver_builtin_test.sh "psmouse"
+
+LPC_FUNC_LOAD_ATKBD_DRIVER_AS_BUILTIN driver_builtin_test.sh "atkbd"
+
+LPC_FUNC_LOAD_I8042_DRIVER_AS_BUILTIN driver_builtin_test.sh "i8042"
+

@@ -1,0 +1,33 @@
+------------------
+PWM TEST SCENARIOS
+------------------
+
+                             AUTO    MANUAL
+                            ------   ------
+1) 'pwm-func-tests'	   : 14 TC
+2) 'pwm-func-builtin-tests':  4 TC
+3) 'pwm-perf-tests'        :  6 TC
+4) 'pwm-stress-tests'      :  0 TC
+
+5) 'pwm-bat-tests'         : 11 TC
+6) 'pwm-full-tests'	   : 25 TC
+
+-----
+TODO:
+-----
+
+------
+NOTES:
+------
+
+  -> PWM BAT: 11 Functional and 6 Performance (KPIs) TCs.
+
+  -> 'pwm-bat-tests' contains 11 functional TC.
+
+  -> 'pwm-full-tests' contains functional, performance and stress TC.
+
+  -> All TC are detailed in PWM Test Plan: https://docs.google.com/spreadsheets/d/1zvhBYOCOWpvH2kZD_0OPn9BqLNBRVXnwGB_pK3I0Umo/edit#gid=303960539
+
+  -> To run PWM tests: './run_lck_test.sh -d pwm -t <test-type> -k <kernel-type>'
+		       <test-type>:   bat, func, perf or full
+		       <kernel-type>: module or builtin

@@ -1,0 +1,1 @@
+SPI m pxa2xx_spi_init spi-pxa2xx-platform

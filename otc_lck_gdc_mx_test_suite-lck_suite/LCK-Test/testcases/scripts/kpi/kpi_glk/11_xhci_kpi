@@ -1,0 +1,3 @@
+XHCI i xhci_pci_init
+XHCI s 00:15.0
+XHCI r 00:15.0

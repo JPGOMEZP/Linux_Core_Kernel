@@ -1,0 +1,7 @@
+# TEST SCENARIO: wdt-stress-tests
+# DESCRIPTION:   this test scenario contains stress test cases for WDT
+# TESTS COUNT:   02
+
+WDT_STRESS_KEEPALIVE wdt_ioctl.sh --ioctl "keepalive" --loop "120"
+
+WDT_STRESS_WRITE_LONG wdt_ioctl.sh --ioctl "write" --loop "120"
